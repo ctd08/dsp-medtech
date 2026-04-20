@@ -13,26 +13,30 @@ def generate_signals():
     fs_hz = 200.0
     duration_s = 1.0
 
+    #defining waves
     t, x_5hz = sine_wave(freq_hz=5.0, amplitude=1.0, phase_rad=0.0, duration_s=duration_s, fs_hz=fs_hz)
-    _, x_10hz = sine_wave(freq_hz=10.0, amplitude=1.0, phase_rad=0.0, duration_s=duration_s, fs_hz=fs_hz)
-    _, x_phase = sine_wave(freq_hz=5.0, amplitude=1.0, phase_rad=np.pi / 4, duration_s=duration_s, fs_hz=fs_hz)
+    t, x_10hz = sine_wave(freq_hz=10.0, amplitude=1.0, phase_rad=0.0, duration_s=duration_s, fs_hz=fs_hz)
+    t, x_phase = sine_wave(freq_hz=5.0, amplitude=1.0, phase_rad=np.pi / 4, duration_s=duration_s, fs_hz=fs_hz)
 
     return t, x_5hz, x_10hz, x_phase, fs_hz
 
 
 def plot_results(t, x_5hz, x_10hz, x_phase):
-    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True) #ensureing that the output directory for saving the plot image exists
 
-    plt.figure(figsize=(10, 6))
+    plt.figure(figsize=(10, 6)) #!inches
     plt.plot(t, x_5hz, label="5 Hz")
     plt.plot(t, x_10hz, label="10 Hz", alpha=0.8)
     plt.plot(t, x_phase, label="5 Hz, phase pi/4", alpha=0.8)
+
     plt.xlabel("Time [s]")
     plt.ylabel("Amplitude")
+
     plt.title("Project 01 - Sine Wave Basics")
     plt.legend()
     plt.tight_layout()
-    plt.savefig(OUTPUT_DIR / "sine_wave_basics.png", dpi=150)
+
+    plt.savefig(OUTPUT_DIR / "sine_wave_basics.png", dpi=150) #dpi=dots per inche
     plt.close()
 
 
