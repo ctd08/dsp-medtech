@@ -36,7 +36,7 @@ def plot_results(t, x_5hz, x_10hz, x_phase):
     plt.legend()
     plt.tight_layout()
 
-    plt.savefig(OUTPUT_DIR / "sine_wave_basics.png", dpi=150) #dpi=dots per inche
+    plt.savefig(OUTPUT_DIR / "sine_wave_basics.png", dpi=150) #dpi=dots per inch
     plt.close()
 
 
